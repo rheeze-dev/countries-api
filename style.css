@@ -116,42 +116,17 @@
     height: 60%;
     width: 60%;
     margin: 30px;
-}
-
-.countries {
-    display: flex;
-  
     font-size: 2rem;
-    opacity: 0;
-    transition: opacity 1s;
-  }
+}
   
-  .country {
+.country {
     background-color: #fff;
     box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
-    font-size: 1.8rem;
+    font-size: 2.8rem;
     width: 100%;
   }
   
-  .neighbour::before {
-    content: 'Neighbour country';
-    width: 100%;
-    position: absolute;
-    top: -4rem;
-  
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #888;
-  }
-  
-  .neighbour {
-    transform: scale(0.8) translateY(1rem);
-    margin-left: 0;
-  }
-  
-  .country-img {
+.country-img {
     width: 100%;
     object-fit: cover;
     background-color: #eee;
@@ -162,40 +137,44 @@
   }
   
   .country-name {
-    font-size: 2.7rem;
+    font-size: 3.7rem;
     margin-bottom: 0.7rem;
   }
   
   .country-region {
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     margin-bottom: 2.5rem;
     text-transform: uppercase;
     color: #888;
   }
-  
-  .country-row:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-  
-  .country-row span {
-    display: inline-block;
-    margin-right: 2rem;
-    font-size: 2.4rem;
-  }
-  
-  .images {
-    display: flex;
-  }
-  
-  .images img {
-    display: block;
-    width: 80rem;
-    margin: 4rem;
-  }
-  
-  .images img.parallel {
-    width: 40rem;
-    margin: 2rem;
-    border: 3rem solid white;
+
+.neighbor {
+    background-color: #fff;
     box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    width: 100%;
+    height: 50%;
+  }
+  
+.neighbor-img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    background-color: #eee;
+  }
+  
+  .neighbor-data {
+    padding: 1rem;
+  }
+  
+  .neighbor-name {
+    font-size: 2.5rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .neighbor-region {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    color: #888;
   }
