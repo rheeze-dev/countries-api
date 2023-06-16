@@ -118,35 +118,35 @@
     margin: 30px;
     font-size: 2rem;
 }
-  
+
 .country {
     background-color: #fff;
     box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
     font-size: 2.8rem;
     width: 100%;
-  }
+}
   
 .country-img {
     width: 100%;
     object-fit: cover;
     background-color: #eee;
-  }
+}
   
-  .country-data {
-    padding: 2.5rem 3.75rem 3rem 3.75rem;
-  }
+.country-data {
+    padding: .5rem;
+}
   
-  .country-name {
+.country-name {
     font-size: 3.7rem;
     margin-bottom: 0.7rem;
-  }
+}
   
-  .country-region {
+.country-region {
     font-size: 2.4rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: .5rem;
     text-transform: uppercase;
     color: #888;
-  }
+}
 
 .neighbor {
     background-color: #fff;
@@ -154,27 +154,27 @@
     font-size: 1.2rem;
     width: 100%;
     height: 50%;
-  }
+}
   
 .neighbor-img {
     width: 100%;
     height: 50%;
     object-fit: cover;
     background-color: #eee;
-  }
+}
   
-  .neighbor-data {
-    padding: 1rem;
-  }
+.neighbor-data {
+    padding: 0;
+}
   
-  .neighbor-name {
-    font-size: 2.5rem;
-    margin-bottom: 0.7rem;
-  }
-  
-  .neighbor-region {
+.neighbor-name {
     font-size: 2rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0;
+}
+  
+.neighbor-region {
+    font-size: 1.5rem;
+    margin-bottom: 0;
     text-transform: uppercase;
     color: #888;
-  }
+}
