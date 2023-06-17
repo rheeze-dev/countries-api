@@ -4,12 +4,14 @@ const btnSubmit = document.querySelector("#btn-submit");
 
 inputCountry.addEventListener("input", buttonListener);
 inputNeighbor.addEventListener("input", buttonListener);
-btnSubmit.onclick = () => {
-    if(document.querySelector("article")) clearNeighbors();
-    getResponse(inputCountry.value, inputNeighbor.value);
-}
+btnSubmit.addEventListener("click", submitButton);
+window.addEventListener("keypress", (e) => {
+    if(e.key === "Enter" && btnSubmit.getAttribute("disabled") == null) {
+        submitButton();
+    }
+});
 
-async function getResponse(country, numberOfNeighbors = 0) {
+async function getCountryApi(country, numberOfNeighbors = 0) {
 	const response = await fetch(
         "https://countries-api-836d.onrender.com/countries/name/" + country
 	);
@@ -35,7 +37,7 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
         <h3 class="country-name">${country[0].name}</h3>
         <h4 class="country-region">${country[0].region}</h4>
         <p class="country-row"><span>🏙</span> ${country[0].capital}</p>
-        <p class="country-row"><span>👫</span>${country[0].population}</p>
+        <p class="country-row"><span>👫</span>${country[0].population.toLocaleString()}</p>
         <p class="country-row"><span>🗣️</span>${country[0].languages[0].name}</p>
         <p class="country-row"><span>💰</span>${country[0].currencies[0].name}</p>
     </div>
@@ -57,7 +59,7 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
                 <h3 class="neighbor-name">${neighbor.name}</h3>
                 <h4 class="neighbor-region">${neighbor.region}</h4>
                 <p class="neighbor-row"><span>🏙</span> ${neighbor.capital}</p>
-                <p class="neighbor-row"><span>👫</span>${neighbor.population}</p>
+                <p class="neighbor-row"><span>👫</span>${neighbor.population.toLocaleString()}</p>
                 <p class="neighbor-row"><span>🗣️</span>${neighbor.languages[0].name}</p>
                 <p class="neighbor-row"><span>💰</span>${neighbor.currencies[0].name}</p>
                 </div>
@@ -76,3 +78,8 @@ function buttonListener() {
     if(inputNeighbor.value <= 5 && inputCountry.value != "") btnSubmit.disabled = false; 
     else if(inputNeighbor.value > 5 || inputCountry.value == "") btnSubmit.disabled = true;
 };
+
+function submitButton() {
+    if(document.querySelector("article")) clearNeighbors();
+    getCountryApi(inputCountry.value, inputNeighbor.value);
+}
