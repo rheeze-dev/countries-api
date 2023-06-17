@@ -106,8 +106,12 @@ async function getFactsApi() {
 	}
 	const data = await response.json();
     document.querySelector("#facts-api").innerHTML = `
+        <div class="questions">${data[0].question}?</div>`;
+    setTimeout(() => {
+        document.querySelector("#facts-api").innerHTML = `
         <div class="questions">${data[0].question}?</div>
         <div class="answers">-${data[0].answer}-</div>
         <button class="btn-next">Next</button>`;
+    }, 8000);
 }
 getFactsApi();
