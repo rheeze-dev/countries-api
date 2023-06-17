@@ -2,7 +2,9 @@ const inputCountry = document.querySelector("#input-country");
 const inputNeighbor = document.querySelector("#input-neighbor");
 const btnSubmit = document.querySelector("#btn-submit");
 
-document.querySelector("#btn-submit").onclick = () => {
+inputCountry.addEventListener("input", buttonListener);
+inputNeighbor.addEventListener("input", buttonListener);
+btnSubmit.onclick = () => {
     if(document.querySelector("article")) clearNeighbors();
     getResponse(inputCountry.value, inputNeighbor.value);
 }
@@ -69,3 +71,8 @@ function clearNeighbors() {
         document.querySelector(`.neighbor${i}`).innerHTML = "";
     }
 }
+
+function buttonListener() {
+    if(inputNeighbor.value <= 5 && inputCountry.value != "") btnSubmit.disabled = false; 
+    else if(inputNeighbor.value > 5 || inputCountry.value == "") btnSubmit.disabled = true;
+};
