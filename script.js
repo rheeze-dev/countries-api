@@ -1,3 +1,10 @@
+const inputCountry = document.querySelector("#input-country");
+const inputNeighbor = document.querySelector("#input-neighbor");
+
+document.querySelector("#btn-submit").onclick = () => {
+    getResponse(inputCountry.value, inputNeighbor.value);
+}
+
 async function getResponse(country, numberOfNeighbors = 0) {
 	const response = await fetch(
         "https://countries-api-836d.onrender.com/countries/name/" + country
@@ -7,12 +14,12 @@ async function getResponse(country, numberOfNeighbors = 0) {
 	}
 	const data = await response.json();
     const neighborsArr = data[0].borders;
-    console.log(neighborsArr);
+    // console.log(numberOfNeighbors);
     displayCountries(data, numberOfNeighbors, neighborsArr)
 }
 
 async function displayCountries(country, numberOfNeighbors, bordersArr) {
-    document.querySelector("#main-country").insertAdjacentHTML("beforeend", 
+    document.querySelector("#main-country").innerHTML =
     `
     <div>
         <img class="country-img" src="${country[0].flag}" />
@@ -28,16 +35,17 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
         <p class="country-row"><span>💰</span>${country[0].currencies[0].name}</p>
     </div>
     </article>
-    `);
+    `;
     if(numberOfNeighbors >= bordersArr.length) numberOfNeighbors = bordersArr.length;
     for(let i = 0; i < numberOfNeighbors; i++) {
         const res = await fetch(`https://countries-api-836d.onrender.com/countries/alpha/${bordersArr[i]}`);
+        console.log(i);
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);
         }
         const neighbor = await res.json();
         
-        document.querySelector(`.neighbor${i+1}`).insertAdjacentHTML("beforeend", 
+        document.querySelector(`.neighbor${i+1}`).innerHTML =  
             `
             <img class="neighbor-img" src="${neighbor.flag}" />
             <article class="neighbor">
@@ -50,8 +58,6 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
                 <p class="neighbor-row"><span>💰</span>${neighbor.currencies[0].name}</p>
                 </div>
             </article>
-            `);
+            `;
     }
 }
-
-getResponse("laos", 3);
