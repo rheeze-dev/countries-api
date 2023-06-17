@@ -1,5 +1,6 @@
 const inputCountry = document.querySelector("#input-country");
 const inputNeighbor = document.querySelector("#input-neighbor");
+const btnSubmit = document.querySelector("#btn-submit");
 
 document.querySelector("#btn-submit").onclick = () => {
     if(document.querySelector("article")) clearNeighbors();
@@ -11,6 +12,8 @@ async function getResponse(country, numberOfNeighbors = 0) {
         "https://countries-api-836d.onrender.com/countries/name/" + country
 	);
 	if (!response.ok) {
+        document.querySelector("#main-country").innerHTML = 
+            `<div class="error-message">The country you entered does not exist, please enter a valid country!</div>`;
 		throw new Error(`HTTP error! status: ${response.status}`);
 	}
 	const data = await response.json();

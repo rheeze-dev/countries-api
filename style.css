@@ -182,3 +182,8 @@
     text-transform: uppercase;
     color: #888;
 }
+
+.error-message {
+  text-align: center;
+  font-size: 2rem;
+}
