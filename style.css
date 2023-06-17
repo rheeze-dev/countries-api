@@ -9,7 +9,7 @@
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: .2fr .2fr .2fr .5fr auto;
   grid-template-areas: 
-    "input-country main-country about"
+    "input-for-country main-country about"
     "input-for-neighbor main-country facts-api"
     "submit-button main-country facts-api"
     "neighbors neighbors neighbors"
@@ -19,9 +19,9 @@
   height: 100vh;
 }
 
-#input-country {
+#input-for-country {
     background: lightcoral;
-    grid-area: input-country;
+    grid-area: input-for-country;
 
 }
 
@@ -118,63 +118,84 @@
     margin: 30px;
     font-size: 2rem;
 }
-  
+
 .country {
-    background-color: #fff;
-    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
-    font-size: 2.8rem;
+    background: rgb(255, 167, 167);
+    font-size: 2.5rem;
     width: 100%;
-  }
+    text-align: center;
+}
   
 .country-img {
-    width: 100%;
+    width: 450px;
     object-fit: cover;
     background-color: #eee;
-  }
+    margin: 30px 15px 15px 15px;
+}
   
-  .country-data {
-    padding: 2.5rem 3.75rem 3rem 3.75rem;
-  }
+.country-data {
+    padding: .5rem;
+}
   
-  .country-name {
-    font-size: 3.7rem;
-    margin-bottom: 0.7rem;
-  }
-  
-  .country-region {
-    font-size: 2.4rem;
-    margin-bottom: 2.5rem;
-    text-transform: uppercase;
-    color: #888;
-  }
+.country-name {
+    font-size: 3.5rem;
+    color: #2c2c2c;
+}
 
-.neighbor {
-    background-color: #fff;
-    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
-    font-size: 1.2rem;
-    width: 100%;
-    height: 50%;
-  }
+.total-borders-text {
+  font-size: 2rem;
+  color: #2c2c2c;
+}
+
+.total-borders {
+  font-size: 5rem;
+  color: #2c2c2c;
+}
   
-.neighbor-img {
-    width: 100%;
-    height: 50%;
-    object-fit: cover;
-    background-color: #eee;
-  }
-  
-  .neighbor-data {
-    padding: 1rem;
-  }
-  
-  .neighbor-name {
-    font-size: 2.5rem;
-    margin-bottom: 0.7rem;
-  }
-  
-  .neighbor-region {
-    font-size: 2rem;
+.country-region {
+    font-size: 2.7rem;
     margin-bottom: .5rem;
     text-transform: uppercase;
     color: #888;
-  }
+}
+
+.neighbor {
+    background: rgb(255, 167, 167);
+    font-size: 1.2rem;
+    width: 100%;
+    height: 64%;
+}
+  
+.neighbor-img {
+    width: 180px;
+    height: 30%;
+    object-fit: cover;
+    background-color: #eee;
+    margin: 10px;
+}
+  
+.neighbor-name {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+  
+.neighbor-region {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.error-message {
+  text-align: center;
+  font-size: 2rem;
+}
+
+button {
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(10px);
+}
