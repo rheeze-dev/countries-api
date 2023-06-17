@@ -120,19 +120,17 @@
 }
 
 .country {
-    background-color: #fff;
-    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    background: rgb(255, 167, 167);
     font-size: 2.5rem;
     width: 100%;
     text-align: center;
 }
   
 .country-img {
-    width: 95%;
-    height: 60%;
+    width: 450px;
     object-fit: cover;
     background-color: #eee;
-    margin: 15px;
+    margin: 30px 15px 15px 15px;
 }
   
 .country-data {
@@ -141,38 +139,43 @@
   
 .country-name {
     font-size: 3.5rem;
-    margin-bottom: 0.7rem;
+    color: #2c2c2c;
+}
+
+.total-borders-text {
+  font-size: 2rem;
+  color: #2c2c2c;
+}
+
+.total-borders {
+  font-size: 5rem;
+  color: #2c2c2c;
 }
   
 .country-region {
-    font-size: 3rem;
+    font-size: 2.7rem;
     margin-bottom: .5rem;
     text-transform: uppercase;
     color: #888;
 }
 
 .neighbor {
-    background-color: #fff;
-    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    background: rgb(255, 167, 167);
     font-size: 1.2rem;
     width: 100%;
     height: 64%;
 }
   
 .neighbor-img {
-    width: 64%;
+    width: 180px;
     height: 30%;
     object-fit: cover;
     background-color: #eee;
     margin: 10px;
 }
   
-.neighbor-data {
-    padding: 0;
-}
-  
 .neighbor-name {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 0;
 }
   
