@@ -48,13 +48,12 @@
 #about {
     background: lightcoral;
     grid-area: about;
-
 }
 
 #facts-api {
     background: lightcoral;
     grid-area: facts-api;
-
+    padding: 15px;
 }
 
 #neighbors {
@@ -198,4 +197,20 @@ button {
 
 button:active {
   transform: translateY(10px);
+}
+
+.questions {
+  font-size: 2rem;
+  padding-top: 30px;
+}
+
+.answers {
+  font-size: 3rem;
+  padding-top: 20px;
+}
+
+.btn-next {
+  width: 30%;
+  margin: 30px;
+  font-size: 1.2rem;
 }
