@@ -2,6 +2,7 @@ const inputCountry = document.querySelector("#input-country");
 const inputNeighbor = document.querySelector("#input-neighbor");
 
 document.querySelector("#btn-submit").onclick = () => {
+    if(document.querySelector("article")) clearNeighbors();
     getResponse(inputCountry.value, inputNeighbor.value);
 }
 
@@ -14,7 +15,6 @@ async function getResponse(country, numberOfNeighbors = 0) {
 	}
 	const data = await response.json();
     const neighborsArr = data[0].borders;
-    // console.log(numberOfNeighbors);
     displayCountries(data, numberOfNeighbors, neighborsArr)
 }
 
@@ -39,7 +39,6 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
     if(numberOfNeighbors >= bordersArr.length) numberOfNeighbors = bordersArr.length;
     for(let i = 0; i < numberOfNeighbors; i++) {
         const res = await fetch(`https://countries-api-836d.onrender.com/countries/alpha/${bordersArr[i]}`);
-        console.log(i);
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);
         }
@@ -59,5 +58,11 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
                 </div>
             </article>
             `;
+    }
+}
+
+function clearNeighbors() {
+    for(let i = 1; i <= 5; i++) {
+        document.querySelector(`.neighbor${i}`).innerHTML = "";
     }
 }
