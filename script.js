@@ -1,11 +1,38 @@
 const inputCountry = document.querySelector("#input-country");
 const inputNeighbor = document.querySelector("#input-neighbor");
 const btnSubmit = document.querySelector("#btn-submit");
+const aboutModal = document.querySelector("#about-modal");
+const contactModal = document.querySelector("#contact-modal");
+const btnAbout = document.querySelector(".about");
+const btnContact = document.querySelector(".contact");
+const btnClose = document.querySelectorAll(".close");
 
 getFactsApi();
 inputCountry.addEventListener("input", buttonListener);
 inputNeighbor.addEventListener("input", buttonListener);
 btnSubmit.addEventListener("click", submitButton);
+document.querySelector("footer").innerHTML = "Copyright &copy; " + new Date().getFullYear();
+
+btnAbout.onclick = () => {
+    aboutModal.style.display = "block";
+    document.querySelector(".about-modal-text").innerHTML = "Test";
+}
+
+btnClose.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        aboutModal.style.display = "none";
+        contactModal.style.display = "none";
+    });
+});
+
+window.onclick = (event) => {
+  if(event.target == aboutModal) {
+    aboutModal.style.display = "none";
+  }
+  else if(event.target == contactModal) {
+    contactModal.style.display = "none";
+  }
+}
 
 window.addEventListener("keypress", (e) => {
     if(e.key === "Enter" && btnSubmit.getAttribute("disabled") == null) {
@@ -24,8 +51,6 @@ async function getCountryApi(country, numberOfNeighbors = 0) {
 	}
 	const data = await response.json();
     const neighborsArr = data[0].borders;
-    console.log(data[0]);
-    console.log(data[0].area);
     displayCountries(data, numberOfNeighbors, neighborsArr);
 }
 
