@@ -2,9 +2,11 @@ const inputCountry = document.querySelector("#input-country");
 const inputNeighbor = document.querySelector("#input-neighbor");
 const btnSubmit = document.querySelector("#btn-submit");
 
+getFactsApi();
 inputCountry.addEventListener("input", buttonListener);
 inputNeighbor.addEventListener("input", buttonListener);
 btnSubmit.addEventListener("click", submitButton);
+
 window.addEventListener("keypress", (e) => {
     if(e.key === "Enter" && btnSubmit.getAttribute("disabled") == null) {
         submitButton();
@@ -112,6 +114,6 @@ async function getFactsApi() {
         <div class="questions">${data[0].question}?</div>
         <div class="answers">-${data[0].answer}-</div>
         <button class="btn-next">Next</button>`;
-    }, 8000);
+        document.querySelector(".btn-next").addEventListener("click", getFactsApi);
+    }, 10000);
 }
-getFactsApi();
