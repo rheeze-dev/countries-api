@@ -2,9 +2,11 @@ const inputCountry = document.querySelector("#input-country");
 const inputNeighbor = document.querySelector("#input-neighbor");
 const btnSubmit = document.querySelector("#btn-submit");
 
+getFactsApi();
 inputCountry.addEventListener("input", buttonListener);
 inputNeighbor.addEventListener("input", buttonListener);
 btnSubmit.addEventListener("click", submitButton);
+
 window.addEventListener("keypress", (e) => {
     if(e.key === "Enter" && btnSubmit.getAttribute("disabled") == null) {
         submitButton();
@@ -24,7 +26,7 @@ async function getCountryApi(country, numberOfNeighbors = 0) {
     const neighborsArr = data[0].borders;
     console.log(data[0]);
     console.log(data[0].area);
-    displayCountries(data, numberOfNeighbors, neighborsArr)
+    displayCountries(data, numberOfNeighbors, neighborsArr);
 }
 
 async function displayCountries(country, numberOfNeighbors, bordersArr) {
@@ -87,4 +89,31 @@ function buttonListener() {
 function submitButton() {
     if(document.querySelector("article")) clearNeighbors();
     getCountryApi(inputCountry.value, inputNeighbor.value);
+}
+
+async function getFactsApi() {
+	const response = await fetch(
+    "https://api.api-ninjas.com/v1/trivia?category=geography",
+    {
+        method: "GET",
+        headers: {
+            "X-Api-Key": "54/p8rt+p9QhgeN9G/Z5Sg==wrJ1tX7OT2EAdJcR",
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    });
+	if(!response.ok) {
+        document.querySelector("#main-country").innerHTML = 
+        `<div class="error-message">Please check your internet connection!</div>`;
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+	const data = await response.json();
+    document.querySelector("#facts-api").innerHTML = `
+        <div class="questions">${data[0].question}?</div>`;
+    setTimeout(() => {
+        document.querySelector("#facts-api").innerHTML = `
+        <div class="questions">${data[0].question}?</div>
+        <div class="answers">-${data[0].answer}-</div>
+        <button class="btn-next">Next</button>`;
+        document.querySelector(".btn-next").addEventListener("click", getFactsApi);
+    }, 10000);
 }
