@@ -115,7 +115,6 @@ footer {
     margin: 30px;
     font-size: 2rem;
     border-radius: 15px;
-    cursor: pointer;
 }
 
 .country {
@@ -272,4 +271,118 @@ button:active {
 
 h1 {
   padding: 10px;
+}
+
+@media screen and (max-width: 1630px) {
+  .about, .contact {
+    margin: 20px 20px 0 20px;
+    font-size: 1.8rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .questions {
+    font-size: 1.3rem;
+  }
+  .answers {
+    font-size: 1.5rem;
+  }
+  .btn-next {
+    margin: 10px;
+  }
+  .country-name {
+    font-size: 3rem;
+  }
+  .country-region {
+    font-size: 2.2rem;
+  }
+  .country {
+    font-size: 2rem;
+  }
+  /* .total-borders-text {
+    font-size: 1.2rem;
+  } */
+  .total-borders {
+    font-size: 3rem;
+  }
+  .country-img {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .about, .contact {
+    margin: 20px 20px 0 20px;
+    font-size: 1.4rem;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  .questions {
+    font-size: 1rem;
+  }
+  .answers {
+    font-size: 1.2rem;
+  }
+  .btn-next {
+    margin: 10px;
+    font-size: 1rem;
+  }
+  .input {
+    font-size: 1.2rem;
+  }
+  .country-img {
+    width: 350px;
+  }
+  .neighbor-img {
+    width: 170px;
+  }
+  .country-name {
+    font-size: 2.5rem;
+  }
+  .country-region {
+    font-size: 1.7rem;
+  }
+  .country {
+    font-size: 1.5rem;
+  }
+  .total-borders-text {
+    font-size: 1.5rem;
+  }
+  .total-borders {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .about, .contact {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+  .answers {
+    font-size: 1.1rem;
+  }
+  .input {
+    font-size: 1.1rem;
+  }
+  .neighbor-img {
+    width: 120px;
+  }
+  .country-img {
+    width: 280px;
+  }
+  .country-name {
+    font-size: 2rem;
+  }
+  .country-region {
+    font-size: 1.2rem;
+  }
+  .country {
+    font-size: 1.1rem;
+  }
+  .total-borders-text {
+    font-size: 1.2rem;
+  }
 }
