@@ -6,17 +6,18 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: .2fr .2fr .2fr .5fr auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: .2fr .2fr .2fr 1fr auto;
   grid-template-areas: 
-    "input-for-country main-country about"
-    "input-for-neighbor main-country facts-api"
-    "submit-button main-country facts-api"
-    "neighbors neighbors neighbors"
-    "footer footer footer";
+    "input-for-country main-country main-country main-country about"
+    "input-for-neighbor main-country main-country main-country facts-api"
+    "submit-button main-country main-country main-country facts-api"
+    "neighbor1 neighbor2 neighbor3 neighbor4 neighbor5"
+    "footer footer footer footer footer";
   gap: .5rem;
   text-align: center;
   height: 100vh;
+  width: 100%;
 }
 
 #input-for-country {
@@ -53,47 +54,29 @@
     padding: 15px;
 }
 
-#neighbors {
-    grid-area: neighbors;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: .5rem;
-}
-
 .neighbor1 {
     background: lightcoral;
-    grid-column: 1;
-    grid-row: 1 / -1;
-    gap: .3rem;
+    grid-area: neighbor1;
 }
 
 .neighbor2 {
     background: lightcoral;
-    grid-column: 2;
-    grid-row: 1 / -1;
-    gap: .3rem;
+    grid-area: neighbor2;
 }
 
 .neighbor3 {
     background: lightcoral;
-    grid-column: 3;
-    grid-row: 1 / -1;
-    gap: .3rem;
+    grid-area: neighbor3;
 }
 
 .neighbor4 {
     background: lightcoral;
-    grid-column: 4;
-    grid-row: 1 / -1;
-    gap: .3rem;
+    grid-area: neighbor4;
 }
 
 .neighbor5 {
     background: lightcoral;
-    grid-column: 5;
-    grid-row: 1 / -1;
-    gap: .3rem;
+    grid-area: neighbor5;
 }
 
 footer {
@@ -115,20 +98,20 @@ footer {
     margin: 30px;
     font-size: 2rem;
     border-radius: 15px;
-    cursor: pointer;
 }
 
 .country {
     background: rgb(255, 167, 167);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     width: 100%;
     text-align: center;
+    padding: 10px;
 }
   
 .country-img {
-    width: 450px;
+    width: 500px;
+    height: 250px;
     object-fit: cover;
-    background-color: #eee;
     margin: 30px 15px 15px 15px;
 }
   
@@ -137,22 +120,22 @@ footer {
 }
   
 .country-name {
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: #2c2c2c;
 }
 
 .total-borders-text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #2c2c2c;
 }
 
 .total-borders {
-  font-size: 5rem;
+  font-size: 2.8rem;
   color: #2c2c2c;
 }
   
 .country-region {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     margin-bottom: .5rem;
     text-transform: uppercase;
     color: #888;
@@ -160,26 +143,25 @@ footer {
 
 .neighbor {
     background: rgb(255, 167, 167);
-    font-size: 1.2rem;
-    width: 100%;
-    height: 64%;
+    font-size: 1.4rem;
+    height: 300px;
+    padding: 15px;
 }
-  
+
 .neighbor-img {
-    width: 180px;
-    height: 30%;
-    object-fit: cover;
-    background-color: #eee;
-    margin: 10px;
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  margin: 20px;
 }
   
 .neighbor-name {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 0;
 }
   
 .neighbor-region {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 0;
     text-transform: uppercase;
     color: #888;
@@ -217,14 +199,13 @@ button:active {
 
 .about {
   width: 40%;
-  margin: 60px 20px 0 20px;
+  margin-top: 60px;
   font-size: 2rem;
   border-radius: 15px;
 }
 
 .contact {
   width: 40%;
-  margin: 60px 20px 0 0;
   font-size: 2rem;
   border-radius: 15px;
 }
@@ -272,4 +253,360 @@ button:active {
 
 h1 {
   padding: 10px;
+}
+
+@media screen and (max-width: 1630px) {
+  .container {
+    grid-template-rows: .3fr .3fr .3fr .7fr auto;
+  }
+  .about, .contact {
+    margin: 20px 20px 0 20px;
+    font-size: 1.8rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .questions {
+    font-size: 1.3rem;
+    padding: 20px;
+  }
+  .answers {
+    font-size: 1.5rem;
+  }
+  .btn-next {
+    margin: 10px;
+  }
+  .country-name {
+    font-size: 2.7rem;
+  }
+  .country-region {
+    font-size: 2.2rem;
+  }
+  .country {
+    font-size: 2rem;
+  }
+  .country-img {
+    width: 400px;
+    height: 250px;
+  }
+  .neighbor-img {
+    width: 180px;
+    height: 124px;
+  }
+  .neighbor-name {
+    font-size: 1.5rem;
+  }
+  .neighbor-region {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .about, .contact {
+    margin: 20px 20px 0 20px;
+    font-size: 1.4rem;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  .questions {
+    font-size: 1rem;
+    padding: 0;
+  }
+  .answers {
+    font-size: 1.2rem;
+  }  
+  .btn-next {
+    margin: 10px;
+    font-size: 1rem;
+  }
+  .input {
+    font-size: 1.2rem;
+  }
+  .country-img {
+    width: 350px;
+    height: 200px;
+  }
+  .country-name {
+    font-size: 2.5rem;
+  }
+  .country-region {
+    font-size: 1.7rem;
+  }
+  .country {
+    font-size: 1.5rem;
+  }
+  .neighbor-img {
+    width: 200px;
+    height: 137px;
+  }
+  .total-borders-text {
+    font-size: 1.5rem;
+  }
+  .total-borders {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .about, .contact {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+  .answers {
+    font-size: 1.1rem;
+  }
+  .input {
+    font-size: 1.1rem;
+  }
+  .total-borders-text {
+    font-size: 1.2rem;
+  }
+  .neighbor {
+    font-size: 1.1rem;
+    height: 315px;
+  }
+  .neighbor-name {
+    font-size: 1.2rem;
+  }
+  .neighbor-region {
+    font-size: 1.2rem;
+  }
+  .country {
+    font-size: 1.3rem;
+  }
+  .country-name {
+    font-size: 2.3rem;
+  }
+  .country-img {
+    width: 300px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .2fr .2fr .5fr .3fr .3fr .3fr .5fr auto;
+    grid-template-areas: 
+      "input-for-country input-for-neighbor"
+      "submit-button about"
+      "main-country main-country"
+      "neighbor1 neighbor1"
+      "neighbor2 neighbor3"
+      "neighbor4 neighbor5"
+      "facts-api facts-api"
+      "footer footer";
+    gap: .5rem;
+    text-align: center;
+    height: 100vh;
+  }
+  .about, .contact {
+    font-size: 2rem;
+    margin: 10px;
+  }
+  #btn-submit {
+    font-size: 2rem;
+    margin: 10px;
+  }
+  .country-img {
+    width: 300px;
+    height: 150px;
+  }
+  .country-name {
+    font-size: 2.2rem;
+  }
+  .country-region {
+    font-size: 1.7rem;
+  }
+  .country {
+    font-size: 1.5rem;
+  }
+  .neighbor-img {
+    width: 140px;
+    height: 103px;
+  }
+  .neighbor-name {
+    font-size: 1.5rem;
+  }
+  .neighbor-region {
+    font-size: 1.2rem;
+  }
+  .neighbor {
+    font-size: 1.2rem;
+  }
+  .btn-next {
+  width: 10%;
+  }
+  h1 {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .answers {
+    font-size: 1.5rem;
+  }
+  .questions {
+    font-size: 1.2rem;
+  }
+  .input {
+    font-size: 1.3rem;
+  }
+  .total-borders-text {
+    font-size: 1.5rem;
+  }
+  .total-borders {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .neighbor1 {
+    background: lightcoral;
+    grid-area: neighbor1;
+}
+
+  .neighbor2 {
+    background: lightcoral;
+    grid-area: neighbor2;
+  }
+
+  .neighbor3 {
+    background: lightcoral;
+    grid-area: neighbor3;
+  }
+
+  .neighbor4 {
+    background: lightcoral;
+    grid-area: neighbor4;
+  }
+
+  .neighbor5 {
+      background: lightcoral;
+      grid-area: neighbor5;
+  }
+
+  .about, .contact {
+    font-size: 2rem;
+    margin: 10px;
+  }
+  #btn-submit {
+    font-size: 2rem;
+    margin: 10px;
+  }
+  .country-img {
+    width: 300px;
+    height: 150px;
+  }
+  .country-name {
+    font-size: 2.2rem;
+  }
+  .country-region {
+    font-size: 1.7rem;
+  }
+  .country {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+  .neighbor-img {
+    width: 180px;
+    height:120px;
+  }
+  .neighbor-name {
+    font-size: 1.5rem;
+  }
+  .neighbor-region {
+    font-size: 1.2rem;
+  }
+  .neighbor {
+    font-size: 1.2rem;
+    padding: 10px;
+    height: 200px;
+  }
+  .btn-next {
+  width: 10%;
+  }
+  h1 {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .answers {
+    font-size: 1.5rem;
+  }
+  .questions {
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+  .input {
+    font-size: 1.3rem;
+  }
+  .total-borders-text {
+    font-size: 1.5rem;
+  }
+  .total-borders {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .about, .contact {
+    font-size: 1.5rem;
+  }
+  #btn-submit {
+    font-size: 1.5rem;
+  }
+  .country-img {
+    width: 200px;
+    height: 100px;
+  }
+  .neighbor-img {
+    width: 130px;
+    height:80px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .about, .contact {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  #btn-submit {
+    font-size: 1rem;
+  }
+  .country-img {
+    width: 130px;
+    height: 80px;
+  }
+  .neighbor-img {
+    width: 130px;
+    height:80px;
+  }
+  .country-name {
+    font-size: 1.5rem;
+  }
+  .country-region {
+    font-size: 1.2rem;
+  }
+  .country {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  .input {
+    height: 30%;
+    font-size: 1rem;
+    padding: 15px 5px;
+  }
+  .neighbor {
+    font-size: 1.2rem;
+    padding: 3px;
+  }
+  .btn-next {
+    width: 20%;
+    height: 30px;
+  }
 }

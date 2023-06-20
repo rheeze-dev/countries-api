@@ -16,7 +16,7 @@ btnSubmit.addEventListener("click", submitButton);
 btnAbout.onclick = () => {
     aboutModal.style.display = "block";
     document.querySelector(".about-modal-text").innerHTML = 
-    `This app is powered by web API. All informations here are being fetched in 2 different API servers. The countries and its neighbors are being fetched at https://countries-api-836d.onrender.com/countries/name/{country}. The facts are being fetched at https://api.api-ninjas.com/v1/trivia?category=geography. Entering an invalid country name in the input field will display a text saying you entered an invalid country name. Leaving it empty will make the submit button disabled. Number of neighbors input field only accept numbers and the maximum number it will take is 5. Any number above 5 will make the submit button disabled. You can hit the enter key on your keyboard to submit. Enter key will not do anything if the submit button is disabled. The maximum neighbors shown on this app is limited to only 5. The facts area will show a question and the answer together with the next button will pop-up after 10 seconds. Click the next button to display another fact.`;
+    `This app is powered by web API. All informations here are being fetched in 2 different API servers. The countries and its neighbors are being fetched at https://countries-api-836d.onrender.com/countries/name/{country}. The facts are being fetched at https://api.api-ninjas.com/v1/trivia?category=geography. Entering an invalid country name in the input field will display a text saying you entered an invalid country name. Leaving it empty will make the submit button disabled. Number of neighbors input field only accept numbers and the maximum number it will take is 5. Any number below 0 and above 5 will make the submit button disabled. You can hit the enter key on your keyboard to submit. Enter key will not do anything if the submit button is disabled. The maximum neighbors shown on this app is limited to only 5. The facts area will display a question and the answer together with the next button will pop-up after 10 seconds. Click the next button to display another fact.`;
 }
 
 btnContact.onclick = () => {
@@ -65,13 +65,13 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
     document.querySelector("#main-country").innerHTML =
     `<div>
         <div><img class="country-img" src="${country[0].flags.png}" /></div>
-        <div class="total-borders-text">Total number of borders:</div>
+        <div class="total-borders-text">Total number of neighbors:</div>
         <div class="total-borders">${country[0].borders.length}</div>
     </div>
     <article class="country">
         <div class="country-data">
             <h3 class="country-name">${country[0].name}</h3>
-            <h4 class="country-region">${country[0].region}</h4>
+            <h4 class="country-region">${country[0].subregion}</h4>
             <p class="country-row"><span>🏙</span> ${country[0].capital}</p>
             <p class="country-row"><span>👫</span>${country[0].population.toLocaleString()}</p>
             <p class="country-row"><span>🌎</span>${country[0].area.toLocaleString()} sq km</p>
@@ -91,7 +91,7 @@ async function displayCountries(country, numberOfNeighbors, bordersArr) {
         <article class="neighbor">
             <div class="neighbor-data">
                 <h3 class="neighbor-name">${neighbor.name}</h3>
-                <h4 class="neighbor-region">${neighbor.region}</h4>
+                <h4 class="neighbor-region">${neighbor.subregion}</h4>
                 <p class="neighbor-row"><span>🏙</span> ${neighbor.capital}</p>
                 <p class="neighbor-row"><span>👫</span>${neighbor.population.toLocaleString()}</p>
                 <p class="country-row"><span>🌎</span>${country[0].area.toLocaleString()} sq km</p>
@@ -136,8 +136,9 @@ function clearNeighbors() {
 }
 
 function buttonListener() {
-    if(inputNeighbor.value <= 5 && inputCountry.value != "") btnSubmit.disabled = false; 
-    else if(inputNeighbor.value > 5 || inputCountry.value == "") btnSubmit.disabled = true;
+    if(inputNeighbor.value > 5 || inputNeighbor.value < 0 || inputCountry.value == "") btnSubmit.disabled = true;
+    else if(inputNeighbor.value <= 5 && inputCountry.value != "") btnSubmit.disabled = false; 
+    
 };
 
 function submitButton() {
